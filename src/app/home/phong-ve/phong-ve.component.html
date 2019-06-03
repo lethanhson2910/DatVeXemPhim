@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="col-sm-6 mx-auto">
+    <app-ghe *ngFor="let item of danhSachGhe" [ghe]="item"
+    (eventGhe)="chonGhe($event)"
+    >
+
+    </app-ghe>
+  </div>
+</div>

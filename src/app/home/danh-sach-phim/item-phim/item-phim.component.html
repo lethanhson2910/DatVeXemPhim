@@ -1,0 +1,23 @@
+<!--Begin item -->
+<div class="card">
+  <img class="card-img-top" [src]="phim.HinhAnh" alt="">
+  <div class="card-body">
+    <h4 class="card-title">{{ phim.TenPhim }}</h4>
+    <!-- 3 cách truyền tham số lên url: -->
+    
+    <!-- c1: truyền 1 tham số -->
+    <!-- <a class="btn btn-primary" routerLink="/home/chi-tiet-phim/{{ phim.MaPhim }}">Mua vé</a> -->
+    <!-- <a class="btn btn-primary" [routerLink]="['/home/chi-tiet-phim/', phim.MaPhim ]">Mua vé</a> -->
+    
+    <!-- c2: truyền nhiều tham số -->
+    <!-- <a class="btn btn-primary" [routerLink]="['/home/chi-tiet-phim/', phim.MaPhim ]" 
+    [queryParams]="{tenPhim: phim.TenPhim}">Mua vé</a> -->
+    <!-- <a class="btn btn-primary" [routerLink]="['/home/chi-tiet-phim/']" 
+    [queryParams]="{maPhim: phim.MaPhim, tenPhim: phim.TenPhim}">Mua vé</a> -->
+
+    <button class="btn btn-primary" (click)="muaVe()" >Mua vé</button>
+
+
+  </div>
+</div>
+<!-- End item -->

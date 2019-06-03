@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 mx-auto">
+      <!-- Nếu một button -->
+      <!-- <form #formDangKy="ngForm" (ngSubmit)="DangKy(formDangKy.value)"> -->
+
+      <!-- Nếu có 2 button -->
+      <form #formDangKy="ngForm">
+        <div class="form-group">
+          <label>Tài khoản</label>
+          <input type="text" class="form-control" minlength="7" maxlength="15" #taiKhoan="ngModel" name="taiKhoan"
+            ngModel required>
+          <div *ngIf="taiKhoan.errors && (taiKhoan.dirty || taiKhoan.touched)">
+            <!-- Kiểm tra rổng -->
+            <div *ngIf="taiKhoan.errors.required" class="alert alert-danger">
+              Tài khoản không được bỏ trống
+            </div>
+
+            <!-- Kiểm tra độ dài -->
+            <div *ngIf="taiKhoan.errors.minlength||taiKhoan.errors.maxlength" class="alert alert-danger">
+              Độ tài phải từ 7 đến 15 kí tự
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Mật khẩu</label>
+          <input type="password" class="form-control" name="matKhau" ngModel>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" #email="ngModel" name="email" ngModel required >
+          <div *ngIf="email.errors && (email.dirty || email.touched)">
+            <!-- Kiểm tra rổng -->
+            <div *ngIf="email.errors.required" class="alert alert-danger">
+              Email không được bỏ trống
+            </div>
+            <!-- Kiểm tra định dạng email -->
+            <div *ngIf="email.errors.pattern" class="alert alert-danger">
+                Email không đúng định dạng
+              </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Số điện thoại</label>
+          <input type="text" class="form-control" name="soDT" ngModel>
+        </div>
+        <button type="submit" class="btn btn-success" (click)="DangKy(formDangKy.value)">Đăng ký</button>
+        <button type="submit" class="btn btn-success">Hủy</button>
+      </form>
+    </div>
+  </div>
+</div>
