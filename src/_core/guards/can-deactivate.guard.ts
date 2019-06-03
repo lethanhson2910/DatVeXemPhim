@@ -16,6 +16,11 @@ export class CanDeactivateGuard implements CanDeactivate<DangKyComponent> {
   }
 }
 
+//Nếu không có injectable thì sẽ bị lỗi export
+@Injectable({
+  providedIn: 'root'
+})
+
 export class CanDeactivateDangNhapGuard implements CanDeactivate<DangNhapComponent> {
   canDeactivate(component){
     return (
