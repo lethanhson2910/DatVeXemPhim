@@ -7,12 +7,17 @@ import { TinTucComponent } from './tin-tuc/tin-tuc.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { ItemPhimComponent } from './danh-sach-phim/item-phim/item-phim.component';
 import { ChiTietPhimComponent } from './danh-sach-phim/chi-tiet-phim/chi-tiet-phim.component';
+import { PipesComponent } from './pipes/pipes.component';
+import { ShareModule } from 'src/_core/shared/share.module';
+import { MaterialModule } from 'src/_core/share/material.module';
 
 @NgModule({
-  declarations: [HomeComponent, TrangChuComponent, DanhSachPhimComponent, TinTucComponent, ItemPhimComponent, ChiTietPhimComponent],
+  declarations: [HomeComponent, TrangChuComponent, DanhSachPhimComponent, TinTucComponent, ItemPhimComponent, ChiTietPhimComponent, PipesComponent],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    ShareModule,
+    MaterialModule
   ]
 })
 export class HomeModule { }

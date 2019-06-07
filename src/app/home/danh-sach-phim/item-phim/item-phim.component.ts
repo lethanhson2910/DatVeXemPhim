@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { moveEmbeddedView } from '@angular/core/src/view';
-
 import { Router } from '@angular/router';
+import { ShareDataService } from 'src/_core/shared/share-data.service';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class ItemPhimComponent implements OnInit {
 
   @Input() phim;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router, private shareDataService: ShareDataService) { }
 
   ngOnInit() {
   }
@@ -22,6 +22,10 @@ export class ItemPhimComponent implements OnInit {
     this.router.navigate(["/home/chi-tiet-phim", this.phim.MaPhim], 
     {queryParams: {tenPhim: this.phim.TenPhim} }
     );
+  }
+
+  xemNhanh(){
+    this.shareDataService.sharingDataChiTietPhim(this.phim);
   }
 
 
